@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-
+#include <cassert>
 using namespace std;
 
 namespace AVL {
@@ -88,12 +88,36 @@ namespace AVL {
 			// 4> -2 : 插入之前是-1 插入到左边 不平衡 旋转
 			// 5> 0  : 插入前是-1 插入到右边 插入前是1 插入到左边
 			while (parent) {
-				if (cur == parent->_right) --parent->_bf;
+				if (cur == parent->_right) ++parent->_bf;		// 插入到右边 bf++
+				else --parent->_bf;								// 插入到左边 bf--
+
+				if (0 == parent->_bf) break;					// bf为0 不用调整
+					
+				// 向上更新
+				if (-1 == parent->_bf || 1 == parent->_bf) {	// parent没有失衡 但会影响parent的父节点
+					cur = cur->_parent;
+					parent = parent->_parent;
+				}
+				// 旋转操作
+				else if (-2 == parent->_bf || 2 == parent->_bf) {
+
+				}
+				else {	// 异常检查
+					assert(false);
+				}
 
 			}
 			return true;
 		}
 	private:
 		Node* _root = nullptr;
+
+		// 左旋
+
+		// 右旋
+
+		// 先左旋后右旋
+
+		// 先右旋后左旋
 	};
 }
