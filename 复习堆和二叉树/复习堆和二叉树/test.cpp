@@ -1,5 +1,6 @@
 #include "heap.h"
 #include "BSTree.h"
+#include "AVLTree.h"
 int main() {
 
 	//HEAP::TestTopKSmall(1'000'000, 10);
@@ -11,6 +12,7 @@ int main() {
 	for (const auto& e : v) cout << e << " ";*/
 
 	//BST::dictionary();
-	BST::testErase();
+	//BST::testErase();
+	AVL::testAVL();
 	return 0;
 }
