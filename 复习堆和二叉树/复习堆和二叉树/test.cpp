@@ -1,6 +1,7 @@
 #include "heap.h"
 #include "BSTree.h"
 #include "AVLTree.h"
+#include "RBTree.h"
 int main() {
 
 	//HEAP::TestTopKSmall(1'000'000, 10);
@@ -13,6 +14,7 @@ int main() {
 
 	//BST::dictionary();
 	//BST::testErase();
-	AVL::testAVL();
+	//AVL::testAVL();
+	RBT::testRBT();
 	return 0;
 }
